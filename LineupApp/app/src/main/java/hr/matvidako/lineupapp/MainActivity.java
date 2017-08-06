@@ -9,7 +9,7 @@ import android.view.View;
 import java.util.Arrays;
 import java.util.List;
 
-import hr.matvidako.lineupapp.genre.GenresActivity;
+import hr.matvidako.lineupapp.festivalinfo.FestivalInfoActivity;
 import hr.matvidako.lineupapp.napi.ArtistsResponse;
 import hr.matvidako.lineupapp.napi.Napi;
 import hr.matvidako.lineupapp.napi.TagsResponse;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.ready).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, GenresActivity.class));
+                startActivity(new Intent(MainActivity.this, FestivalInfoActivity.class));
             }
         });
 

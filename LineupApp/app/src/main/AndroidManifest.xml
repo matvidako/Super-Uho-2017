@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".genre.GenresActivity" />
+        <activity android:name=".festivalinfo.FestivalInfoActivity" />
     </application>
 
 </manifest>

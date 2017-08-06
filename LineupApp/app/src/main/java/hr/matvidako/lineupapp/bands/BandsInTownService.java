@@ -1,4 +1,4 @@
-package hr.matvidako.lineupapp;
+package hr.matvidako.lineupapp.bands;
 
 
 import java.util.List;

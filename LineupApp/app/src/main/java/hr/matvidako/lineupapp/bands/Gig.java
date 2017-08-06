@@ -1,4 +1,4 @@
-package hr.matvidako.lineupapp;
+package hr.matvidako.lineupapp.bands;
 
 
 import com.google.gson.annotations.SerializedName;

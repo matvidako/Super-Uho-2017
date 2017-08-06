@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
+import hr.matvidako.lineupapp.napi.ArtistsResponse;
+import hr.matvidako.lineupapp.napi.Napi;
+import hr.matvidako.lineupapp.napi.TagsResponse;
 import rx.Subscriber;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,23 +39,30 @@ public class MainActivity extends AppCompatActivity {
                     //Log.d("DISI", genre.name + " " + genre.id);
                 }
 
-                napi.getTopArtistsForGenre(genres.get(2).id, LineupApp.CATALOG, 10).subscribe(new Subscriber<ArtistsResponse>() {
+                napi.getTopArtistsForGenre("g.5", LineupApp.CATALOG, 200).subscribe(new Subscriber<ArtistsResponse>() {
                     @Override
                     public void onCompleted() {
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        Log.d("DISI", "error " + e.toString());
                     }
 
                     @Override
                     public void onNext(ArtistsResponse artistsResponse) {
+                        int i = 0;
+                        for(ArtistsResponse.Artist artist : artistsResponse.artists) {
+                            Log.d("DISI", i + " " + artist.name);
+                            i++;
+                        }
                     }
                 });
             }
         });
 
-        LineupApp.getInstance().getBandsInTown().getGigsForArtist("Destroyer").subscribe(new Subscriber<List<Gig>>() {
+
+/*        LineupApp.getInstance().getBandsInTown().getGigsForArtist("Destroyer").subscribe(new Subscriber<List<Gig>>() {
             @Override
             public void onCompleted() {
             }
@@ -75,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("DISI", "available?" + Gig.isAvailable(gigs, startDate, enddDate));
                     startDate = sdf.parse("28/11/2018");
                     enddDate = sdf.parse("30/11/2018");
-                    
+
                     Log.d("DISI", "available?" + Gig.isAvailable(gigs, startDate, enddDate));
 
 
@@ -83,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
     }
 
 }

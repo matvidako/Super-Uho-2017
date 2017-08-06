@@ -1,4 +1,4 @@
-package hr.matvidako.lineupapp;
+package hr.matvidako.lineupapp.napi;
 
 
 import retrofit2.http.GET;
